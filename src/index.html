@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div
+      class="w-full h-screen grid justify-items-center place-items-center text-center"
+    >
+      <div class="bg-[#e3e3e3] h-[450px] w-[300px] rounded-lg">
+        <div class="text-2xl font-bold text-center mt-5">Your Name</div>
+        <div class="text-center text-gray-500">@your_username</div>
+
+        <div>
+          <img
+            class="rounded-full h-52 w-52 mx-auto mt-5 object-contain"
+            id="profile-pic"
+            src="./profile.png"
+            alt=""
+            srcset=""
+          />
+        </div>
+
+        <label
+          class="block w-[150px] mt-[70px] bg-[#e3362c] text-white p-[12px] my-[10px] mx-auto rounded-[5px] cursor-pointer"
+          for="input-file"
+          >Update image</label
+        >
+        <input
+          class="hidden"
+          type="file"
+          accept="images/jpg,images/png,image/jpeg"
+          id="input-file"
+        /><br />
+      </div>
+    </div>
+    <script>
+      let profilePic = document.getElementById("profile-pic");
+      let inputFile = document.getElementById("input-file");
+
+      inputFile.onchange = function () {
+        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+      };
+    </script>
+  </body>
+</html>
